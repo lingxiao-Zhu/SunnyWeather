@@ -26,11 +26,11 @@ class PlaceAdapter(private val fragment: Fragment, private val placeList: List<P
     holder.itemView.setOnClickListener {
       val pos = holder.adapterPosition;
       val place = placeList[pos]
-      val intent = Intent(parent.context, WeatherActivity::class.java).apply { {
+      val intent = Intent(parent.context, WeatherActivity::class.java).apply {
         putExtra("location_lng", place.location.lng)
         putExtra("location_lat", place.location.lat)
         putExtra("place_name", place.name)
-      } }
+      }
       fragment.startActivity(intent)
       fragment.activity?.finish()
     }

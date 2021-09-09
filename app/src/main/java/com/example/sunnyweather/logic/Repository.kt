@@ -1,5 +1,6 @@
 package com.example.sunnyweather.logic
 
+import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.sunnyweather.logic.model.Place
 import com.example.sunnyweather.logic.model.Weather
@@ -23,6 +24,7 @@ object Repository {
   }
 
   fun refreshWeather(lng: String, lat: String) = fire(Dispatchers.IO) {
+    Log.d("refreshWeather", "lng: $lng, lat: $lat")
     coroutineScope {
       val deferredRealtime = async {
         SunnyWeatherNetwork.getRealtimeWeather(lng, lat)
